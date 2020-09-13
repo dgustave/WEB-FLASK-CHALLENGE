@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block Pagination %}
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <!-- <a href="/humidity" class="w3-bar-item w3-light-grey w3-button iconic">
+        <image src="{{url_for('static', filename='images/Latitude vs. Humidity.jpg')}}"
+        alt="Humidity"  width="100" height="100"></image>
+      </a> -->
+      <a href="/cloudiness" class="w3-bar-item w3-light-grey w3-button iconic">
+        <image src="{{url_for('static', filename='images/Latitude vs. Cloudiness.jpg')}}"
+        alt="Cloudiness" width="100" height="100"></image>
+      </a>
+      <a href="/correlations" class="w3-bar-item w3-light-grey w3-button iconic">
+        <image src="{{url_for('static', filename='images/(North) Cloudiness(%) vs. Latitude Linear Regression.png')}}"
+        alt="Cloudiness Correlation" width="100" height="100"></image>
+      </a>
+      <a href="/home" class="w3-bar-item w3-button w3-light-grey iconic">
+        <image src="{{url_for('static', filename='images/sunX.png')}}" 
+        alt="Home"  width="100" height="100"></image>
+      </a>
+      <a href="/correlations" class="w3-bar-item w3-light-grey w3-button iconic">
+        <image src="{{url_for('static', filename='images/(North) Max Temp vs. Latitude Linear Regression.png')}}"
+        alt="Max Tempature Correlation" width ="100" height="100"></image>
+      </a>
+      <a href="/tempature" class="w3-bar-item w3-light-grey w3-button iconic">
+        <image src="{{url_for('static', filename='images/Latitude vs. Max Temperature.jpg')}}"
+        alt="Temperature" width ="100" height="100"></image>
+      </a>
+      <!-- <a href="/windspeed" class="w3-bar-item w3-light-grey w3-button iconic">
+        <image src="{{url_for('static', filename='images/Latitude vs. Wind Speed.jpg')}}" 
+        alt="WindSpeed" width="100" height="100"></image>
+      </a> -->
+      <a href="/compare" class="w3-bar-item w3-light-grey w3-button iconic"></a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+
+{% endblock %}
+{% block sidebar %} X {% endblock %}
+{% block title %}X{% endblock %}
+{% block header_image %}
+<image src="{{url_for('static', filename='images/sunX.png')}}" alt="Sunny" class="w3-image w3-padding-32" width="400" height="450"></image>
+{% endblock %}
+
+{% block title_summary %}Summary{% endblock %}
+{% block paragraph %}
+<div class="row">
+    <div class="col-sm-7">
+            The purpose of this project was to analyze how weather changes as you get closer to the equator. To
+        accomplish this analysis, I pulled data from the OpenWeatherMap API to assemble a dataset on over 500
+        cities. As I looped through the information, I saved the entries by city ID as their unique identifier. These 
+        saved files included log entries, csv's, and data visualizations that could be extracted at any moment in time. 
+        {% endblock %}
+        {% block paragraph2 %}
+            After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. The factors
+        I looked at included; temperature, cloudiness, wind speed, and humidity. Here you will find the souce data
+        and visualizations created as part of the analysis, as well as explanations, descriptions of any trends, and
+        correlations witnesseed.
+    </div>
+    <div class="col-sm-5">
+        <h4>Preview Visualizations</h4>
+        <iframe class="iframe-container" src="/compare" width= "150%" height= "400" title="Comparisons preview" frameborder="0"></iframe>
+        <script>
+            // Selecting the iframe element
+            var iframe = document.getElementById("iframe-container");
+            
+            // Adjusting the iframe height onload event
+            iframe.onload = function(){
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            }
+        </script>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block tech_skills %}
+<div class="row">
+    <div class="col-md-2">
+        <hr class="w3-opacity">
+        <image src="{{url_for('static', filename='images/tan.png')}}" 
+        alt="Too Tan" class=" g1_img w3-image w3-center  w3-padding-32 w3-hover-orange" width="350" height="300"></image>
+    </div>
+    <div class="col-md-10">
+        <h4 class="w3-padding-16 w3-center">Technical Skills</h4>
+        <p class="w3-wide">Python</p>
+        <div class="w3-white">
+            <div class="w3-container w3-padding-small w3-center w3-orange" style="width:95%">95%</div>
+        </div>
+        <p class="w3-wide">Pandas</p>
+        <div class="w3-white">
+            <div class="w3-container w3-padding-small w3-center w3-orange" style="width:85%">85%</div>
+        </div>
+        <p class="w3-wide">Matplotlib</p>
+        <div class="w3-white">
+            <div class="w3-container w3-padding-small w3-center w3-orange" style="width:80%">80%</div>
+        </div>
+        <p class="w3-wide">HTML5/CSS</p>
+        <div class="w3-white">
+            <div class="w3-container w3-padding-small w3-center w3-orange" style="width:75%">75%</div>
+        </div>
+        <p class="w3-wide">Flask/Jinja2</p>
+        <div class="w3-white">
+            <div class="w3-container w3-padding-small w3-center w3-orange" style="width:25%">25%</div>     
+        </div>
+    </div>
+</div>
+{% endblock %}
